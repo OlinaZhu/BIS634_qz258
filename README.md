@@ -6,7 +6,7 @@ This is the repository for HW1 in BIS634 during Fall 2021, completed by Olina (Q
 The file 'Execerise 1' is a Python 3 (.py) file and all other exercises are Jupyter Notebook (.jpynb) files. For Exercises 2, 3, and 4, one should run the cells in order from top to down or click 'Run All' to ensure proper execution of code logic. 
 
 Exercise 1: 
-The code was ran with the given test code and all results matched the answer scheme. Additionally, five more tests were added to test for potential errors associated with: 
+The code was ran with the given test code and all results matched the answer scheme. Additionally, five more tests were added to identify potential errors associated with: 
   1) order of chicken/human tests (same parameter for two human test after inserting chicken test with the same parameter in between) 
   2) proximity of parameter value between subsequent chicken and human tests '
   3) proximity of parameter value between the same kinds of tests 

@@ -26,7 +26,7 @@ The oldest patient is 84.99855742449432 years old with name Monica Caponera.
 
 The function is implemented and shown in the console_HW2_qz258 file. The code is reproduced below: 
 
-'''
+```
 def find_second_oldest(list):
     oldest = 0
     second_oldest = 0
@@ -36,7 +36,7 @@ def find_second_oldest(list):
     return second_oldest
     
 print("Second oldest is", find_second_oldest(df['full_age']))
-''' 
+```
 
 Output: Second oldest is 84.9982928781625 
 

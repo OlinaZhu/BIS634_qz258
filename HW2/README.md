@@ -58,19 +58,28 @@ There are 240548031 15-mers that have less than two 'N's on chromosome 2 in the 
 There are 144698064 unique 15-mers on chromosome 2, as estimated using hashes. The simple tests and relevant datasets are in console_HW2_qz258 file slight edits in pdf file that are not in oringal console but does not affect output) reproduced below: 
 
 data_1 = "abcdefghijklmnopqabcdefghijklmno"
+
 data_2 = "ctagctagctagctagctagcccccccccccc"
+
 data_3 = "acacacacacacacacacacacacacacacac"
 
+
 test 1: Correct answer should be 17
+
 Observed answer is 17 
 
 test 2: Correct answer should be 15
+
 Observed answer is 15 
 
+
 test 3: Correct answer should be 2
+
 Observed answer is 2 
 
+
 test 4: trying algorithm on chromosome 2
+
 144698064
 
 *Note: For this problem, I understand that the approximate counting code is probably wrong. I did not quite understand the materials in slides on the topic, and simply used scale = 30 as 1 billion seubsequences is approximately 2^30. But this does not sound right because the probability of clashes is simply too high at about 50%. Could we please go over the implementation of this problem in class? The explanation on the slides is understandable by logic (incrementing exponent increase) but difficult to implement into actual problems for me. Thank you! 

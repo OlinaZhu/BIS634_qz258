@@ -1,3 +1,18 @@
+## Question 1: 
+Although no written response is required for this question, I still want to mention that I recieved a tremendous amount of help from our TF Wenxin Xu and Professor McDougal. 
+
+Note that I was able to query the data but was unsuccessful at finding out which tags corresponded to 'query' and 'MeSH' because I was not able to generate an overview of the xml's tags. Therefore, all enties for query' and 'mesh' in the resulting jason and dataframes in Q2 are 'N/A'. This prohibited analysis of mesh values, so all code written in Q2 are to work 'hypothetically' but cannot generate any real values using data generated from Q1. 
+
+
+
+## Question 2: 
+As explained above, no results can be generated for Q2 due to faulty code in Q1. All code in Q2 are complete for reference. 
+
+
+
+# Question 3: 
+Not yet completed. Encountered trouble in installing pytorch (commandline shows requirements satisfied when I tried to install twice, but running code still shows no pytorch found). 
+
 
 
 ## Question 4: 

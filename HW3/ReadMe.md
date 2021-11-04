@@ -1,3 +1,6 @@
+Note that readme is not complete, I will be submitting a pdf version of readme instead such that a single document could encapsulate the code, output, and analysis. Currently it is still two separate documents of: ReadMe.md and Console_qz258.pdf. 
+
+
 ## Question 1: 
 Although no written response is required for this question, I still want to mention that I recieved a tremendous amount of help from our TF Wenxin Xu and Professor McDougal. 
 

@@ -1,6 +1,6 @@
 
 
-##Question 4: 
+## Question 4: 
 Parallelization: 
 To parallelize the merge sort algorithm using 2 processes, I would find the tasks in merge sort that could be independently, i.e., one task does not rely on or feed into another. 
 
@@ -21,9 +21,9 @@ I would utilize the time package in python to track the runtime of my program. A
 
 Moreover, I would run the two versions of merge sorts repeatedly on varying sizes of arrays, and plot each version's performance on a size-of-array v.s. runtime line graph. An average could be taken for 5 runs of each array-size, such that an overview of the standard error of runtime could also be visualized along with the trend. From the graph we will be able to: 
 
-	1. Determine whether there is a speed up using parallelization on merge sort; 
-	2. Determine the trend of increase/speed-up relative to traditional version: is the increase linearly increasing, constant, or exponentially increasing, or shrinking as the size of array increases; and 
-	3. Calculate Big O of parallelized version and compare it to that of traditional version. 
+1. Determine whether there is a speed up using parallelization on merge sort; 
+2. Determine the trend of increase/speed-up relative to traditional version: is the increase linearly increasing, constant, or exponentially increasing, or shrinking as the size of array increases; and 
+3. Calculate Big O of parallelized version and compare it to that of traditional version. 
 
 
 ## Question 5: 
@@ -44,72 +44,73 @@ Figure VII: A graph similar to figure VI but showing proportion of column values
 Figure VIII: A graph showing the information in figure VII but removing 'Other Significant Conditions' to obtain a more detailed view of the lower-valued columns. It seems that most columns have relatively small proportions of values missing except 'Description of Injury'and 'Injury Place'. 
 
 
-Missing and Cleaning Data Code (also found in console_qz258, only reproduced here as requested by homework manual): 
+### Missing and Cleaning Data Code 
+#### (also found in console_qz258, only reproduced here as requested by homework manual): 
 _________
 
 1. Cleaning data by replacing type of drug NaN values with N appropriately: 
 _________
-type_of_drug = data[["Heroin", "Cocaine", "Fentanyl", "Fentanyl Analogue", "Oxycodone", "Oxymorphone", "Ethanol", "Hydrocodone",	"Benzodiazepine", "Methadone", "Amphet", "Tramad", "Morphine (Not Heroin)", "Hydromorphone", "Xylazine", "Other", "Opiate NOS",	"Any Opioid"]]
-row = 0
-col_num = len(type_of_drug.columns)
+	type_of_drug = data[["Heroin", "Cocaine", "Fentanyl", "Fentanyl Analogue", "Oxycodone", "Oxymorphone", "Ethanol", "Hydrocodone",	"Benzodiazepine", "Methadone", "Amphet", "Tramad", "Morphine (Not Heroin)", "Hydromorphone", "Xylazine", "Other", "Opiate NOS",	"Any Opioid"]]
+	row = 0
+	col_num = len(type_of_drug.columns)
 
-while row < len(type_of_drug):
-    num_nan = type_of_drug.iloc[row].isna().sum()
-    if num_nan != col_num: type_of_drug.iloc[row].fillna("N", inplace=True)
-    row += 1
+	while row < len(type_of_drug):
+	    num_nan = type_of_drug.iloc[row].isna().sum()
+	    if num_nan != col_num: type_of_drug.iloc[row].fillna("N", inplace=True)
+	    row += 1
 
-data[["Heroin", "Cocaine", "Fentanyl", "Fentanyl Analogue", "Oxycodone", "Oxymorphone", "Ethanol", "Hydrocodone",	"Benzodiazepine", "Methadone", "Amphet", "Tramad", "Morphine (Not Heroin)", "Hydromorphone", "Xylazine", "Other", "Opiate NOS",	"Any Opioid"]] = type_of_drug
+	data[["Heroin", "Cocaine", "Fentanyl", "Fentanyl Analogue", "Oxycodone", "Oxymorphone", "Ethanol", "Hydrocodone",	"Benzodiazepine", "Methadone", "Amphet", "Tramad", "Morphine (Not Heroin)", "Hydromorphone", "Xylazine", "Other", "Opiate NOS",	"Any Opioid"]] = type_of_drug
 _________
 
 2. Count missing values and the proportion of each column that is missing to store in dictionary, and create dataframe 
 _________
-nan_dict = {}
-cols = data.columns
-for col in cols:
-    nan_dict[col] = [data[col].isna().sum(), round(data[col].isna().sum()/len(data[col]), 3)]
+	nan_dict = {}
+	cols = data.columns
+	for col in cols:
+	    nan_dict[col] = [data[col].isna().sum(), round(data[col].isna().sum()/len(data[col]), 3)]
 
-nan_df = pd.DataFrame.from_dict(nan_dict, orient='index', columns=['# Missing', 'Proportion of Column Data Missing']).reset_index() 
+	nan_df = pd.DataFrame.from_dict(nan_dict, orient='index', columns=['# Missing', 'Proportion of Column Data Missing']).reset_index() 
 _________
 
 3. 
 _________ 
-// plot missing values graph by crude number
+	// plot missing values graph by crude number
 
-missing_crude_plt = sns.barplot(data=nan_df, x='# Missing', y='index')
-
-
-// plot missing values graph by proportion of total column entries
-
-missing_prop_plt = sns.barplot(data=nan_df, x='Proportion of Column Data Missing', y='index')
+	missing_crude_plt = sns.barplot(data=nan_df, x='# Missing', y='index')
 
 
-// obtain more detailed view on previous graph by removing the other significant conditions column
+	// plot missing values graph by proportion of total column entries
 
-missing_prop_mag_plt = sns.barplot(data=nan_df.drop([9]), x='Proportion of Column Data Missing', y='index')
-
-
-// examining potential associations between description of injury and other variables
-
-injury_assoc = data[data['Description of Injury'].isna()]
-
-IA_age_gb = injury_assoc.groupby('Age')['ID'].count()
-IA_age_gb.head(100)
-
-IA_sex_gb = injury_assoc.groupby('Sex')['ID'].count()
-IA_sex_gb
-
-IA_race_gb = injury_assoc.groupby('Race')['ID'].count()
-IA_race_gb
-
-IA_date_gb = injury_assoc.groupby('Date')['ID'].count()
-IA_date_gb = IA_date_gb.sort_values(ascending=False)
+	missing_prop_plt = sns.barplot(data=nan_df, x='Proportion of Column Data Missing', y='index')
 
 
-// the follow 3 calls is to obtain an overview of the general pattern between dates and missing value counts in Description of Injury. 
+	// obtain more detailed view on previous graph by removing the other significant conditions column
 
-IA_date_gb.head(50)
-IA_date_gb.head(100)
-IA_date_gb.head(500)
+	missing_prop_mag_plt = sns.barplot(data=nan_df.drop([9]), x='Proportion of Column Data Missing', y='index')
+
+
+	// examining potential associations between description of injury and other variables
+
+	injury_assoc = data[data['Description of Injury'].isna()]
+
+	IA_age_gb = injury_assoc.groupby('Age')['ID'].count()
+	IA_age_gb.head(100)
+
+	IA_sex_gb = injury_assoc.groupby('Sex')['ID'].count()
+	IA_sex_gb
+
+	IA_race_gb = injury_assoc.groupby('Race')['ID'].count()
+	IA_race_gb
+
+	IA_date_gb = injury_assoc.groupby('Date')['ID'].count()
+	IA_date_gb = IA_date_gb.sort_values(ascending=False)
+
+
+	// the follow 3 calls is to obtain an overview of the general pattern between dates and missing value counts in Description of Injury. 
+
+	IA_date_gb.head(50)
+	IA_date_gb.head(100)
+	IA_date_gb.head(500)
 _________ 
 
 
@@ -127,9 +128,12 @@ Due to the above analysis, I would say that DOI data is MAR because although it 
 
 _____________________________________________________________________________________________
 
-#Resources: 
+# Resources: 
+
 https://docs.python-requests.org/en/latest/user/quickstart/ 
+
 https://www.ncbi.nlm.nih.gov/books/NBK3837/ 
+
 https://www.geeksforgeeks.org/get-post-requests-using-python/ 
+
 https://www.w3schools.com/python/ref_requests_post.asp 
->>>>>>> 3cb9b98500c14042b3df6908ca2e88bcac39b6d8

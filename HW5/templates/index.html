@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" name="viewport" content="initial-scale=1, width=device-width">
+        <title>HW5Q1 Olina Zhu HOMEPAGE</title>
+    </head>
+    <body>
+        Please type state name below
+        <form action="/info" method="get">
+            <input autocomplete="off" autofocus name="name" placeholder="State Name" type="text">
+            <input type="submit" value="Search">
+        </form>
+
+        Alternatively, please choose from below states
+        <form action="/info" method="get">
+            <select name="States">
+                {% for state in states %}
+                    <option>{{ state }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Search">
+        </form>
+    </body>
+</html>

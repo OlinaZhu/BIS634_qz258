@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" name="viewport" content="initial-scale=1, width=device-width">
+        <title>Final Project BIS634 Fall 2021 | Olina Zhu HOMEPAGE</title>
+    </head>
+    <body>
+    <p style="font-size:50px">
+        <center>Welcome to the Homepage for Final Project BIS634 Fall 2021 | Olina Zhu <br> </center>
+    </p>
+
+        <br> This webpage utilizes the dataset "accidental-drug-related-deaths-2012-2018" found at: <br> https://catalog.data.gov/dataset/accidental-drug-related-deaths-2012-2018. <br>
+
+        <br> The publisher is data.ct.gov and it is a public access dataset - intended for public access and use. <br>
+
+       <br> Please choose from below items to generate and view analysis. <br><br>
+
+        <form action="/info" method="get">
+            <select name="Actions">
+                {% for i in analysis_options %}
+                    <option>{{ i }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Generate and View">
+        </form>
+    </body>
+</html>

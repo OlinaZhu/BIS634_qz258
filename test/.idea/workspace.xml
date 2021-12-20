@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5222c38b-dd06-4211-bd8e-8826bf53cb4d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../HW5/templates/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW5/templates/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW5/templates/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW5/templates/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW5/templates/.idea/templates.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW5/templates/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/Accidental_Drug_Related_Deaths_2012-2020.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/Data Exploration.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/Project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/age by sex.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/age.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/amphet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/any opioid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/benzodiazepine.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/cocaine.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/ethanol.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/fentanyl analogue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/fentanyl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/heroin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/hydrocodone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/hydromorphone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/methadone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/missing values.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/morphine (not heroin).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/opiate nos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/oxycodone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/oxymorphone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/tramad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/static/xylazine.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/templates/failure.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/templates/info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/incd.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mcdougal-exercise1.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="22WUmaiCahSXLFoIa9SGcousTQz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager" selected="Flask server.Flask (mcdougal-exercise1.py)">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python">
+      <module name="test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mcdougal-exercise1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flask (mcdougal-exercise1.py)" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="target" value="$PROJECT_DIR$/mcdougal-exercise1.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flask server.Flask (mcdougal-exercise1.py)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5222c38b-dd06-4211-bd8e-8826bf53cb4d" name="Changes" comment="" />
+      <created>1639952996818</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1639952996818</updated>
+      <workItem from="1639952998024" duration="477000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/test$Flask__mcdougal_exercise1_py_.coverage" NAME="Flask (mcdougal-exercise1.py) Coverage Results" MODIFIED="1639953022322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+</project>

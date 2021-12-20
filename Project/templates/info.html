@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      h2{
+        background-color: bisque;
+      }
+    </style>
     <meta charset="UTF-8" name="viewport" content="initial-scale=1, width=device-width">
     <title>View Information</title>
   </head>
-  <body>
-  <center>You selected the analysis type: {{ analysis_type }}.<br><br></center>
-
-    {% if ({{analysis_type}} != "Age") and ({{analysis_type}} != "Age by sex") and ({{analysis_type}} != "Missing values") %}
-      {{tc}}.<br>
-      {{mc}};<br>
-      {{fc}}.<br>
-      {{aa}}.<br>
-      {{rm}}.<br>
-      <br>Figure below demonstrates the age distribution of accidental deaths related to selected drug.<br>
-    {% elif analysis_type == "Age" %}
-      <br>Figure below demonstrates the age distribution of accidental deaths related to selected drug.<br>
-    {% elif analysis_type == "Age by sex" %}
-      <br>Figure below demonstrates the age distribution of accidental deaths related to selected drug by gender.<br>
-    {% elif analysis_type == "Missing values" %}
-      <br>Figure below demonstrates the percentage of values in each column that is NaN, or missing.<br>
-    {% endif %}
-
-  <p>
-      <img src = src>
-    </p>
+  <body background="/static/background.webp">
+    <h2><center><b>You selected the analysis type: {{ analysis_type }}.</b></center></h2>
     <br>
     <br>
-    <br>
-
-    <a href="/">Click Here to Return Home</a>
+    <b>The results for analyzing {{ analysis_type }} is as follows</b>
+      <p>
+        <img src="{{fp}}">
+      </p>
+      {% if isdrug == True %}
+        <b>
+        {{ tc }}<br>
+        {{ mc }}<br>
+        {{ fc }}<br>
+        {{ aa }}<br>
+        {{ rm }}<br>
+        </b>
+      {% endif %}
+      <br>
+      <br>
+      <b><a href="/">Click Here to Return Home</a></b>
   </body>
 </html>

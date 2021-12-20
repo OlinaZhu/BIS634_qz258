@@ -4,8 +4,12 @@ import seaborn as sns
 import numpy as np
 from statistics import mode
 from matplotlib import pyplot as plt
-from flask import Flask, render_template, redirect, request, url_for, jsonify
+from flask import Flask, render_template, redirect, request, url_for, jsonify, send_file
+import requests
 import jinja2
+import tempfile
+from pandas.plotting import table
+import uuid
 
 # import data
 # data retrieved from  https://catalog.data.gov/dataset/accidental-drug-related-deaths-2012-2018
@@ -34,56 +38,20 @@ while row < len(type_of_drug):
     row += 1
 data[["heroin", "cocaine", "fentanyl", "fentanyl analogue", "oxycodone", "oxymorphone", "ethanol", "hydrocodone",	"benzodiazepine", "methadone", "amphet", "tramad", "morphine (not heroin)", "hydromorphone", "xylazine", "other", "opiate nos",	"any opioid"]] = type_of_drug
 
+# generate dataframe image (done in Data Exploration file)
+# ax = plt.subplot(111, frame_on=False)
+# ax.xaxis.set_visible(False)
+# ax.yaxis.set_visible(False)
+# table(ax, data)
+# plt.savefig('/static/data.png')
+
+average_age = round(np.mean(data['age']), 2)
+percent_male = round(len(data[data['sex']=='Male'])/len(data), 4)*100
+percent_female = round(len(data[data['sex']=='Female'])/len(data), 4)*100
 
 # _________________________________________________ END DATA PREPARATION ______________________________________________
-# _________________________________________________ API FUNCTIONS _____________________________________________________
 
-# finding relationship between age and accidental drug-caused death
-def by_age():
-    ages = data.groupby('age')['id'].count().reset_index()
-    age_plt = sns.lineplot(data=ages, x='age', y='id')
-    age_plt.set(ylabel='Count')
-    return age_plt
 
-# find relationship between age and accidental drug-caused death by gender
-def by_gender_age():
-    age_gender = data.groupby(['sex', 'age'])['id'].count().reset_index()
-    age_gender = age_gender[age_gender.sex != 'unknown']
-    age_gender_plt = sns.lineplot(data=age_gender, x='age', y='id', hue='sex')
-    age_gender_plt.set(ylabel='Count')
-    return age_gender_plt
-
-# count missing values and the proportion of each column that is missing
-def missing_vals():
-    nan_dict = {}
-    cols = data.columns
-    for col in cols:
-        nan_dict[col] = [data[col].isna().sum(), round(data[col].isna().sum()/len(data[col]), 3)]
-    return nan_dict
-
-# select type of drug used and show stats
-def show_drug_type_stats(drug):
-    selected_drug = data[data[drug] == "Y"]
-    total_count = len(selected_drug)
-    if total_count == 0: return "There are no data for this drug."
-    male_count = len(selected_drug[selected_drug["sex"] == 'Male'])
-    female_count = len(selected_drug[selected_drug["sex"] == 'Female'])
-    average_age = np.mean(selected_drug['age'])
-    race_mode = mode(selected_drug['race'])
-
-    tc = "There were " + str(total_count) + " incidences related to "+str(drug)
-    mc = "Of which, the number of males is " + str(male_count)
-    fc = "The number of females is " + str(female_count)
-    aa = 'The average age is ' + str(average_age)
-    rm = 'The most seen race is ' + str(race_mode)
-
-    # age distribution
-    age = selected_drug.groupby('age')['id'].count().reset_index()
-    plt.figure()
-    age_plt = sns.lineplot(data=age, x='age', y='id')
-    age_plt.set(ylabel='Count')
-    age_plt.set(title=drug)
-    return [tc, mc, fc, aa, rm]
 
 
 # _________________________________________________ END API FUNCTIONS _________________________________________________
@@ -102,7 +70,62 @@ app = Flask(__name__)
 # and provides a button, which passes this information to /info
 @app.route("/")
 def index():
-    return render_template("index.html", analysis_options=analysis_options)
+    return render_template("index.html", analysis_options=analysis_options, gif='/static/yalegif.gif', data='/static/data.PNG', img='/static/datagov.PNG', female=percent_female, male=percent_male, aa=average_age)
+
+# finding relationship between age and accidental drug-caused death
+@app.route("/age")
+def by_age():
+    analysis_type = request.args.get("Actions")
+    print(analysis_type)
+    ages = data.groupby('age')['id'].count().reset_index()
+    plt.figure()
+    age_plt = sns.lineplot(data=ages, x='age', y='id')
+    age_plt.set(ylabel='Count')
+    path = 'output/age.png'
+    plt.savefig(path)
+    return send_file(path, mimetype='image/png')
+
+# find relationship between age and accidental drug-caused death by gender
+@app.route("/genderage")
+def by_gender_age():
+    age_gender = data.groupby(['sex', 'age'])['id'].count().reset_index()
+    age_gender = age_gender[age_gender.sex != 'unknown']
+    plt.figure()
+    age_gender_plt = sns.lineplot(data=age_gender, x='age', y='id', hue='sex')
+    age_gender_plt.set(ylabel='Count')
+    path = 'output/genderage.png'
+    plt.savefig(path)
+    return send_file(path, mimetype='image/png')
+
+# count missing values and the proportion of each column that is missing
+@app.route("/missingvals")
+def missing_vals():
+    nan_dict = {}
+    cols = data.columns
+    for col in cols:
+        nan_dict[col] = [data[col].isna().sum(), round(data[col].isna().sum()/len(data[col]), 3)]
+    # plot missing values onto chart
+    plt.figure()
+    missing_df = pd.DataFrame.from_dict(nan_dict, orient='index').reset_index()
+    missing_df.columns = ['col type', 'crude count', '%']
+    missing_plt = sns.barplot(data=missing_df, x='%', y='col type')
+    path = 'output/missingvals.png'
+    plt.savefig(path)
+    return send_file(path, mimetype='image/png')
+
+# select type of drug used and show stats
+@app.route("/drugtype/<drug>")
+def show_drug_type_stats(drug):
+    selected_drug = data[data[drug] == "Y"]
+    # age distribution
+    age = selected_drug.groupby('age')['id'].count().reset_index()
+    plt.figure()
+    age_plt = sns.lineplot(data=age, x='age', y='id')
+    age_plt.set(ylabel='Count')
+    age_plt.set(title=drug)
+    path = 'output/drugtype.png'
+    plt.savefig(path)
+    return send_file(path, mimetype='image/png')
 
 # a web page that takes the name of the state as a GET argument and
 # (1) if one item is selected, displays the same information as the API 'view' in an HTML page
@@ -111,27 +134,60 @@ def index():
 @app.route("/info", methods=["GET"])
 def info():
     analysis_type = request.args.get("Actions")
+
+    # check if selected option is valid
     if str(analysis_type) in analysis_options:
+        # initialize variables
+        isdrug = False
+        fp = "/"
+        tc = ""
+        mc = ""
+        fc = ""
+        aa = ""
+        rm = ""
+
+        # if chosen to analyze a type of drug
         if str(analysis_type).split(" ")[0] == "Drug":
-            # if chosen to analyze a type of drug
+            isdrug = True
             drug = str(analysis_type).split(": ")[1]
             drug = drug.lower()
-            response = show_drug_type_stats(drug)
-            if response != "There are no data for this drug.":
-                tc = str(response[0])
-                mc = str(response[1])
-                fc = str(response[2])
-                aa = str(response[3])
-                rm = str(response[4])
-                src = "/static/"+drug+".png"
-                render_template("info.html", analysis_type=analysis_type, src=src, total_count=tc, male_count=mc, female_count=fc, average_age=aa, race_mode=rm)
-        # other analysis: return template
+            fp = f'/drugtype/{drug}'
+            selected_drug = data[data[drug] == "Y"]
+            total_count = len(selected_drug)
+
+            # if no data available render failure page
+            if total_count == 0:
+                return render_template("failure.html")
+
+            # if drug type data is available
+            male_count = len(selected_drug[selected_drug["sex"] == 'Male'])
+            female_count = len(selected_drug[selected_drug["sex"] == 'Female'])
+            average_age = np.mean(selected_drug['age'])
+            race_mode = mode(selected_drug['race'])
+
+            # upating strings
+            tc = "There were " + str(total_count) + " incidences related to "+str(drug) + "."
+            mc = "Of which, the number of males is " + str(male_count) + ";"
+            fc = "The number of females is " + str(female_count) + "."
+            aa = 'The average age is ' + str(average_age) + "."
+            rm = 'The most seen race is ' + str(race_mode) + "."
+
+        # missing values
+        elif str(analysis_type) == "Missing values":
+            fp = '/missingvals'
+
+        # analysis by age
+        elif str(analysis_type) == "Age":
+            fp = '/age'
+
+        # by gender age is only valid option left
         else:
-            src = "/static/"+analysis_type.lower()+".png"
-            return render_template("info.html", analysis_type=analysis_type, src=src)
+            fp = '/genderage'
+        print(isdrug)
+        return render_template("info.html", analysis_type=analysis_type, fp=fp, isdrug=isdrug, tc=tc, mc=mc, fc=fc, aa=aa, rm=rm)
+
     # analysis type not included in choices: failure
     return render_template("failure.html")
-
 
 # _________________________________________________ END FLASK FUNCTIONS _______________________________________________
 

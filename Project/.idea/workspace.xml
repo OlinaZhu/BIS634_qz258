@@ -5,40 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b10c1131-d27e-4c15-888c-99df5599ca79" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/output/age.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/drugtype.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/genderage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/missingvals.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/background.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/data.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/datagov.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/yalegif.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/trend.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data Exploration.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Data Exploration.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/age by sex.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/age.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/amphet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/any opioid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/benzodiazepine.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/cocaine.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/ethanol.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fentanyl analogue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fentanyl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/heroin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/hydrocodone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/hydromorphone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/methadone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/missing values.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/morphine (not heroin).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/opiate nos.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/oxycodone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/oxymorphone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tramad.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/xylazine.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/failure.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/failure.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/info.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +131,8 @@
       <workItem from="1639774761715" duration="3676000" />
       <workItem from="1639852427376" duration="9086000" />
       <workItem from="1639945503070" duration="12202000" />
-      <workItem from="1640018151985" duration="19839000" />
+      <workItem from="1640018151985" duration="19935000" />
+      <workItem from="1640039133727" duration="445000" />
     </task>
     <servers />
   </component>
@@ -187,7 +159,7 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Final_Project$app.coverage" NAME="app Coverage Results" MODIFIED="1640038913446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Final_Project$app.coverage" NAME="app Coverage Results" MODIFIED="1640039547573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Final_Project$mcdougal_exercise1.coverage" NAME="mcdougal-exercise1 Coverage Results" MODIFIED="1639952919351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

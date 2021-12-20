@@ -70,7 +70,7 @@ app = Flask(__name__)
 # and provides a button, which passes this information to /info
 @app.route("/")
 def index():
-    return render_template("index.html", analysis_options=analysis_options, gif='/static/yalegif.gif', data='/static/data.PNG', img='/static/datagov.PNG', female=percent_female, male=percent_male, aa=average_age)
+    return render_template("index.html", analysis_options=analysis_options, trend='/static/trend.png', gif='/static/yalegif.gif', data='/static/data.PNG', img='/static/datagov.PNG', female=percent_female, male=percent_male, aa=average_age)
 
 # finding relationship between age and accidental drug-caused death
 @app.route("/age")

@@ -4,55 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b10c1131-d27e-4c15-888c-99df5599ca79" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../HW5/templates/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HW5/templates/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HW5/templates/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HW5/templates/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HW5/templates/.idea/templates.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HW5/templates/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Accidental_Drug_Related_Deaths_2012-2020.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data Exploration.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/age by sex.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/age.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/amphet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/any opioid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/benzodiazepine.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/cocaine.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/ethanol.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fentanyl analogue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fentanyl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/heroin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/hydrocodone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/hydromorphone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/methadone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/missing values.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/morphine (not heroin).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/opiate nos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/oxycodone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/oxymorphone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/tramad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/xylazine.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/failure.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/.idea/test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/incd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/mcdougal-exercise1.py" afterDir="false" />
-    </list>
+    <list default="true" id="b10c1131-d27e-4c15-888c-99df5599ca79" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,7 +122,7 @@
       <workItem from="1639697277778" duration="1291000" />
       <workItem from="1639774761715" duration="3676000" />
       <workItem from="1639852427376" duration="9086000" />
-      <workItem from="1639945503070" duration="12100000" />
+      <workItem from="1639945503070" duration="12202000" />
     </task>
     <servers />
   </component>

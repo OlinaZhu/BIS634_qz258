@@ -102,13 +102,16 @@ def by_gender_age():
 def missing_vals():
     nan_dict = {}
     cols = data.columns
+    tot = 0
     for col in cols:
         nan_dict[col] = [data[col].isna().sum(), round(data[col].isna().sum()/len(data[col]), 3)]
+        tot += data[col].isna().sum()
+    title = 'Total: ' + str(tot)
     # plot missing values onto chart
-    plt.figure()
     missing_df = pd.DataFrame.from_dict(nan_dict, orient='index').reset_index()
     missing_df.columns = ['col type', 'crude count', '%']
-    missing_plt = sns.barplot(data=missing_df, x='%', y='col type')
+    plt.figure()
+    missing_plt = sns.barplot(data=missing_df, x='%', y='col type').set_title(title)
     path = 'output/missingvals.png'
     plt.savefig(path)
     return send_file(path, mimetype='image/png')
@@ -183,7 +186,6 @@ def info():
         # by gender age is only valid option left
         else:
             fp = '/genderage'
-        print(isdrug)
         return render_template("info.html", analysis_type=analysis_type, fp=fp, isdrug=isdrug, tc=tc, mc=mc, fc=fc, aa=aa, rm=rm)
 
     # analysis type not included in choices: failure

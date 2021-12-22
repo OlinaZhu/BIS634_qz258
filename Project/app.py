@@ -61,7 +61,7 @@ percent_female = round(len(data[data['sex']=='Female'])/len(data), 4)*100
 # select options for generating and viewing analysis
 drug_types = ["heroin", "cocaine", "fentanyl", "fentanyl analogue", "oxycodone", "oxymorphone", "ethanol", "hydrocodone",	"benzodiazepine", "methadone", "amphet", "tramad", "morphine (not heroin)", "hydromorphone", "xylazine", "other", "opiate nos",	"any opioid"]
 analysis_options = ["Drug type: " + i for i in drug_types]
-analysis_options = ["Age", "Age by sex", "Missing values"] + analysis_options
+analysis_options = ["Age", "Age by sex", "Missing values", "Dataset View"] + analysis_options
 
 # implement a server that provides three routes using flask
 app = Flask(__name__)
@@ -70,7 +70,7 @@ app = Flask(__name__)
 # and provides a button, which passes this information to /info
 @app.route("/")
 def index():
-    return render_template("index.html", analysis_options=analysis_options, trend='/static/trend.png', gif='/static/yalegif.gif', data='/static/data.PNG', img='/static/datagov.PNG', female=percent_female, male=percent_male, aa=average_age)
+    return render_template("index.html", analysis_options=analysis_options, drugcount='/static/drug_count.png', trend='/static/trend.png', gif='/static/yalegif.gif', img='/static/datagov.PNG')
 
 # finding relationship between age and accidental drug-caused death
 @app.route("/age")
@@ -104,7 +104,7 @@ def missing_vals():
     cols = data.columns
     tot = 0
     for col in cols:
-        nan_dict[col] = [data[col].isna().sum(), round(data[col].isna().sum()/len(data[col]), 3)]
+        nan_dict[col] = [data[col].isna().sum(), round(data[col].isna().sum()/len(data[col]), 3)*100]
         tot += data[col].isna().sum()
     title = 'Total: ' + str(tot)
     # plot missing values onto chart
@@ -113,7 +113,7 @@ def missing_vals():
     plt.figure()
     missing_plt = sns.barplot(data=missing_df, x='%', y='col type').set_title(title)
     path = 'output/missingvals.png'
-    plt.savefig(path)
+    plt.savefig(path, bbox_inches='tight')
     return send_file(path, mimetype='image/png')
 
 # select type of drug used and show stats
@@ -129,6 +129,11 @@ def show_drug_type_stats(drug):
     path = 'output/drugtype.png'
     plt.savefig(path)
     return send_file(path, mimetype='image/png')
+
+# view descriptive statistics and cleaned dataset
+@app.route("/datasetview/<analysis_type>")
+def dataset_view(analysis_type):
+    return render_template('datasetview.html', analysis_type=analysis_type, tables=[data.to_html(classes='data')], titles=data.columns.values, female=percent_female, male=percent_male, aa=average_age)
 
 # a web page that takes the name of the state as a GET argument and
 # (1) if one item is selected, displays the same information as the API 'view' in an HTML page
@@ -174,6 +179,9 @@ def info():
             fc = "The number of females is " + str(female_count) + "."
             aa = 'The average age is ' + str(average_age) + "."
             rm = 'The most seen race is ' + str(race_mode) + "."
+        # view descriptive statistics and complete dataset (cleaned)
+        elif str(analysis_type) == "Dataset View":
+            return dataset_view(analysis_type)
 
         # missing values
         elif str(analysis_type) == "Missing values":
